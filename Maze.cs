@@ -9,7 +9,7 @@ public class Maze : MonoBehaviour
     [Tooltip("Node to be instantiated.")] [SerializeField] private Node _node;
     [Tooltip("The dimensions of the maze.")] [SerializeField] private Vector2Int _size;
     [Tooltip("Grid of nodes based on the size")] [SerializeField] private Node[,] _grid;
-    [Tooltip("The size of each node (both x and y)")] [SerializeField] private float _nodeSize = 1f;
+    [Tooltip("The size of each node (both x and y)")] [SerializeField] private int _nodeSize = 1;
     [Tooltip("The parent the nodes will instantiate on")] [SerializeField] private Transform _parent;
     [Tooltip("The entrance of the maze")] private Node _entranceNode;
     [Tooltip("The exit of the maze")] private Node _exitNode;
@@ -105,7 +105,7 @@ public class Maze : MonoBehaviour
         // Check if left node is available
         if (lastPosition.x - _nodeSize >= 0)
         {
-            Node neighbor = _grid[lastPosition.x - (int)_nodeSize, lastPosition.y];
+            Node neighbor = _grid[lastPosition.x - _nodeSize, lastPosition.y];
             bool isAvailable = neighbor.IsAvailable();
 
             if (isAvailable) neighbors.Add(neighbor);
@@ -113,7 +113,7 @@ public class Maze : MonoBehaviour
         // Check if right node is available
         if (lastPosition.x + _nodeSize < _size.x)
         {
-            Node neighbor = _grid[lastPosition.x + (int)_nodeSize, lastPosition.y];
+            Node neighbor = _grid[lastPosition.x + _nodeSize, lastPosition.y];
             bool isAvailable = neighbor.IsAvailable();
 
             if (isAvailable) neighbors.Add(neighbor);
@@ -121,7 +121,7 @@ public class Maze : MonoBehaviour
         // Check if below node is available
         if (lastPosition.y - _nodeSize >= 0)
         {
-            Node neighbor = _grid[lastPosition.x, lastPosition.y - (int)_nodeSize];
+            Node neighbor = _grid[lastPosition.x, lastPosition.y - _nodeSize];
             bool isAvailable = neighbor.IsAvailable();
 
             if (isAvailable) neighbors.Add(neighbor);
@@ -129,7 +129,7 @@ public class Maze : MonoBehaviour
         // Check if up node is available
         if (lastPosition.y + _nodeSize < _size.y)
         {
-            Node neighbor = _grid[lastPosition.x, lastPosition.y + (int)_nodeSize];
+            Node neighbor = _grid[lastPosition.x, lastPosition.y + _nodeSize];
             bool isAvailable = neighbor.IsAvailable();
 
             if (isAvailable) neighbors.Add(neighbor);
