@@ -22,17 +22,22 @@ public class Settings : MonoBehaviour
         if (!doSettingsExist)
         {
             // If not, set default settings
-            SetDefaultSettings(); return;
+            SetDefaultSettings();
         }
-
-        // If they do, set the UI to the previously set settings
+            // Set the UI to the previously set settings or the default setting
+            SetUIValues();
+    }
+    
+    ///<summary>Sets UI to correct values. Gets called on start if there are no </summary>
+    private void SetUIValues()
+    {
         _width.value = _gameSettings.Width;
         _height.value = _gameSettings.Height;
 
         _widthText.text = _gameSettings.Width.ToString();
         _heightText.text = _gameSettings.Height.ToString();
     }
-
+    
     ///<summary>Sets width when user slides slider</summary>
     ///<param name="value">Dynamic: value from slider</param>
     public void SetWidth(float value)
@@ -60,12 +65,5 @@ public class Settings : MonoBehaviour
     {
         // Change scriptable object
         _gameSettings.SetDefaultSettings((uint)_width.minValue, (uint)_height.minValue);
-
-        // Change UI
-        _width.value = _gameSettings.Width;
-        _height.value = _gameSettings.Height;
-
-        _widthText.text = _gameSettings.Width.ToString();
-        _heightText.text = _gameSettings.Height.ToString();
     }
 }
