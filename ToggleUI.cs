@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class ToggleUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _panel;
-    [SerializeField] private Button[] _buttons;
+   [Tooltip("Panel to toggle")] [SerializeField] private GameObject _panel;
+   [Tooltip("Button(s) to toggle.")] [SerializeField] private Button[] _buttons;
+
+   [Tooltip("Input script to listen to event to")] [SerializeField] private Input _input;
 
     private bool _panelVisibility;
     private bool _buttonVisiblity;
@@ -15,8 +17,7 @@ public class ToggleUI : MonoBehaviour
     void Start()
     {
         // Add listener to event in Input
-        Input input = FindObjectOfType<Input>();
-        input.OnTogglingSettings.AddListener(ToggleSettingScreen);
+        _input.OnTogglingSettings.AddListener(ToggleSettingScreen);
     }
 
     ///<summary>Getts called when the player presses the escape button, or when the player presses the settings/cancel button</summary>
