@@ -23,13 +23,21 @@ public class Node : MonoBehaviour
         switch (state)
         {
             case State.Available:
-                _state = State.Available; _floor.material.color = Color.white; break;
+                _state = State.Available; 
+                _floor.material.color = Color.white; 
+                break;
             case State.Current:
-                _state = State.Current; _floor.material.color = Color.green; break;
+                _state = State.Current; 
+                _floor.material.color = Color.green; 
+                break;
             case State.Visited:
-                _state = State.Visited; _floor.material.color = Color.blue; break;
+                _state = State.Visited; 
+                _floor.material.color = Color.blue; 
+                break;
             case State.Point:
-                _state = State.Visited; _floor.material.color = Color.red; break;
+                _state = State.Visited; 
+                _floor.material.color = Color.red; 
+                break;
         }
     }
 
