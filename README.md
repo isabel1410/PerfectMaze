@@ -2,7 +2,7 @@
 An app that generates a maze with the *Depth-First* algorithm.
 
 ## Improvements
-Even though the app is almost finished, I do see some improvements to make. I'll describe them here down below.
+Even though the app is almost finished, I do see some improvements to make already. I'll describe them here down below.
 
 ### Maze
 - The list of nodes is redundant. This is because the grid already has all the nodes stored.
