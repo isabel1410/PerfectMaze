@@ -8,15 +8,10 @@ public class CameraController : MonoBehaviour
     [Tooltip("Speed the camera will move")] [SerializeField] private float _cameraSpeed = 50f;
     [Tooltip("The speed the camera will zoom")] [SerializeField] private float _cameraZoomSpeed = 5f;
     [Tooltip("The position of the camera before recognizing the input")] private Vector2 cameraPosition;
-    [Tooltip("The camera to move")] private Camera _camera;
+    [Tooltip("The camera to move")] [SerializeField] private Camera _camera;
 
     [Header("Input")]
     [Tooltip("Input from user used to move camera")] [SerializeField] private Input _input;
-
-    private void Start()
-    {
-        _camera = GetComponent<Camera>();
-    }
 
     void Update()
     {
