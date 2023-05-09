@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Settings : MonoBehaviour
+public class SettingsUI : MonoBehaviour
 {
     [Header("UI elements")]
     [SerializeField] private Slider _width;
