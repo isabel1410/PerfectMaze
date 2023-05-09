@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     [Header("Camera Settings")]
     [Tooltip("Speed the camera will move")] [SerializeField] private float _cameraSpeed = 50f;
     [Tooltip("The speed the camera will zoom")] [SerializeField] private float _cameraZoomSpeed = 5f;
-    [Tooltip("The position of the camera before recognizing the input")] private Vector2 cameraPosition;
+    [Tooltip("The position of the camera before recognizing the input")] private Vector2 _cameraPosition;
     [Tooltip("The camera to move")] [SerializeField] private Camera _camera;
 
     [Header("Input")]
@@ -16,9 +16,9 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         // Move camera with mouse input
-        cameraPosition = new Vector2(transform.position.x, transform.position.y);
+        _cameraPosition = new Vector2(transform.position.x, transform.position.y);
         Vector2 cameraMovement = new Vector2(_input.MoveInput.x, _input.MoveInput.y) * _cameraSpeed * Time.deltaTime;
-        Vector2 newCameraPosition = cameraPosition + cameraMovement;
+        Vector2 newCameraPosition = _cameraPosition + cameraMovement;
 
         // Zoom camera with mouse scroll wheel
         float zoomInput = _input.ScrollInput;
