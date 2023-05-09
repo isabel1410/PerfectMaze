@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     {
         // Move camera with mouse input
         _cameraPosition = new Vector2(transform.position.x, transform.position.y);
-        Vector2 cameraMovement = new Vector2(_input.MoveInput.x, _input.MoveInput.y) * _cameraSpeed * Time.deltaTime;
+        Vector2 cameraMovement = new Vector2(_input.MoveInput.x, _input.MoveInput.y).normalized * _cameraSpeed * Time.deltaTime;
         Vector2 newCameraPosition = _cameraPosition + cameraMovement;
 
         // Zoom camera with mouse scroll wheel
